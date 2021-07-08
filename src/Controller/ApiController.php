@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ApiController extends AbstractController
 {
     /**
-     * @Route("/api/birds", name="api_birds_get")
+     * @Route("/api/birds", name="api_birds_get", methods={"GET"})
      */
     public function index(): Response
     {
