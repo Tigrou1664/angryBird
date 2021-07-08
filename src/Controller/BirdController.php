@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Model\BirdModel;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * AbstractController est le contrôleur du FW Symfony
@@ -54,5 +56,24 @@ class BirdController extends AbstractController
         return $this->render('bird/show.html.twig', [
             'bird' => $bird,
         ]);
+    }
+
+    /**
+     * @Route("/theme/dark", name="dark_theme")
+     */
+    public function darkTheme(SessionInterface $session, Request $request)
+    {
+        // Définir le thème dark en session si pas présent
+        if ($session->get('theme') == null) {
+            // Définissons un attribut de session, disons 'theme' à 'dark'
+            $session->set('theme', 'dark'); // $_SESSION['theme'] = 'dark';
+        } else {
+            // Sinon, on le supprime
+            $session->remove('theme');
+        }
+
+        // On redirige vers la page d'origine
+        // grâce un header de requête qui contient l'URL d'origine, qu'on appelle le referer
+        return $this->redirect($request->headers->get('referer'));
     }
 }

@@ -12,6 +12,17 @@ body {
     margin-top: 90px;
 }
 
+/*
+  Créer une classe CSS pour utiliser cette image dans le body
+  0d250a59780745.5a2f309cb41b9.jpg
+  pour le dark theme
+*/
+
+.theme--dark {
+    background-color: #303d5b;
+    background-image: url('images/0d250a59780745.5a2f309cb41b9.jpg');
+}
+
 .navbar-brand-logo {
     background-image: url(images/logo.png);
     background-repeat: no-repeat;

@@ -13,7 +13,13 @@
     <link rel="stylesheet" href="{{ asset('css/site.css') }}">
 </head>
 
-<body>
+{#
+    @see https://symfony.com/doc/current/templates.html#the-app-global-variable
+    Conditionner l'affichage d'une classe CSS selon le thème en sessio
+    via app.session.get()
+    équivaut à PHP if ($session->get('theme') == 'dark')
+#}
+<body {% if app.session.get('theme') == 'dark' %}class="theme--dark"{% endif %}>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -30,6 +36,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('api_birds_get') }}">Fan API</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('dark_theme') }}">Switch theme</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
