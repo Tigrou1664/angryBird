@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\BirdModel;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,10 +21,17 @@ class BirdController extends AbstractController
      */
     public function home()
     {
+        // On récupère nos oiseaux
+        $birdModel = new BirdModel();
+        $birds = $birdModel->getBirds();
+        //dump($birds);
+
         // On range le template dans un dossier qui correspond
         // au nom du contrôleur
         // Chemin à partir de templates/
-        return $this->render('bird/home.html.twig');
+        return $this->render('bird/home.html.twig', [
+            'birds' => $birds,
+        ]);
     }
 
     /**
@@ -33,6 +41,14 @@ class BirdController extends AbstractController
      */
     public function show($id)
     {
-        return $this->render('bird/show.html.twig');
+        // On récupère un oiseau selon l'id fourni
+        $birdModel = new BirdModel();
+        $bird = $birdModel->getBirdById($id);
+
+        dump($bird);
+        
+        return $this->render('bird/show.html.twig', [
+            'bird' => $bird,
+        ]);
     }
 }

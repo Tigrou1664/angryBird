@@ -15,76 +15,19 @@
     <main class="container main-content">
         <div class="row">
     
+            {# @link https://twig.symfony.com/doc/3.x/tags/for.html#iterating-over-keys-and-values #}
+            {% for index, bird in birds %}
             <!-- Bird Card -->
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card mb-3 bird-card">
-                    <a href="bird.html">
-                        <h3 class="card-header bird-card__title">Red Bird</h3>
-                        <img class="bird-card__image" src="{{ asset('images/red.png') }}" width="100%">
+                    <a href="{{ path('bird_show', {id: index}) }}">
+                        <h3 class="card-header bird-card__title">{{ bird.name }}</h3>
+                        <img class="bird-card__image" src="{{ asset( 'images/' ~ bird.image ) }}" width="100%">
                     </a>
                 </div>
             </div>
-    
-            <!-- Bird Card -->
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-                <div class="card mb-3 bird-card">
-                    <a href="bird.html">
-                        <h3 class="card-header bird-card__title">Red Bird</h3>
-                        <img class="bird-card__image" src="{{ asset('images/red.png') }}" width="100%">
-                    </a>
-                </div>
-            </div>
-    
-            <!-- Bird Card -->
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-                <div class="card mb-3 bird-card">
-                    <a href="bird.html">
-                        <h3 class="card-header bird-card__title">Red Bird</h3>
-                        <img class="bird-card__image" src="{{ asset('images/red.png') }}" width="100%">
-                    </a>
-                </div>
-            </div>
-    
-            <!-- Bird Card -->
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-                <div class="card mb-3 bird-card">
-                    <a href="bird.html">
-                        <h3 class="card-header bird-card__title">Red Bird</h3>
-                        <img class="bird-card__image" src="{{ asset('images/red.png') }}" width="100%">
-                    </a>
-                </div>
-            </div>
-    
-            <!-- Bird Card -->
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-                <div class="card mb-3 bird-card">
-                    <a href="bird.html">
-                        <h3 class="card-header bird-card__title">Red Bird</h3>
-                        <img class="bird-card__image" src="{{ asset('images/red.png') }}" width="100%">
-                    </a>
-                </div>
-            </div>
-    
-            <!-- Bird Card -->
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-                <div class="card mb-3 bird-card">
-                    <a href="bird.html">
-                        <h3 class="card-header bird-card__title">Red Bird</h3>
-                        <img class="bird-card__image" src="{{ asset('images/red.png') }}" width="100%">
-                    </a>
-                </div>
-            </div>
-    
-            <!-- Bird Card -->
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-                <div class="card mb-3 bird-card">
-                    <a href="bird.html">
-                        <h3 class="card-header bird-card__title">Red Bird</h3>
-                        <img class="bird-card__image" src="{{ asset('images/red.png') }}" width="100%">
-                    </a>
-                </div>
-            </div>
-    
+            {% endfor %}
+        
         </div>
     
     </main>
