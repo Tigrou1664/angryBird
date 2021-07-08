@@ -16,7 +16,7 @@ class BirdController extends AbstractController
     /**
      * Page d'accueil
      * 
-     * @Route("/")
+     * @Route("/", name="home")
      */
     public function home()
     {
@@ -24,5 +24,15 @@ class BirdController extends AbstractController
         // au nom du contrôleur
         // Chemin à partir de templates/
         return $this->render('bird/home.html.twig');
+    }
+
+    /**
+     * Page d'un oiseau
+     * 
+     * @Route("/bird/{id}", name="bird_show")
+     */
+    public function show($id)
+    {
+        return $this->render('bird/show.html.twig');
     }
 }

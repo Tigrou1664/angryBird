@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Show bird{% endblock %}
+
+{% block body %}
+
+    <main class="container main-content">
+    
+        <div class="jumbotron mt-3 bird-detail">
+            <h1 class="display-4">Red Bird</h1>
+    
+            <div class="row">
+                <div class="col-3">
+                    <img class="bird-card__image" src="{{ asset('images/red.png') }}" width="50%">
+                </div>
+                <div class="col-9">
+                    <p class="lead">The first avian missile players encounter when they start the game, the red bird follows
+                        a simple trajectory when launched.</p>
+                </div>
+            </div>
+    
+    
+            <hr class="my-4">
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{{ path('home') }}" role="button">Back to list</a>
+            </p>
+        </div>
+    
+    </main>
+
+
+{% endblock %}
