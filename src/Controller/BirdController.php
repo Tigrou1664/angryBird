@@ -2,10 +2,16 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class BirdController
+/**
+ * AbstractController est le contrôleur du FW Symfony
+ * qui nous donne les supers-pouvoirs
+ * par ex. rendre un template Twig
+ */
+class BirdController extends AbstractController
 {
     /**
      * Page d'accueil
@@ -14,6 +20,9 @@ class BirdController
      */
     public function home()
     {
-        return new Response('home');
+        // On range le template dans un dossier qui correspond
+        // au nom du contrôleur
+        // Chemin à partir de templates/
+        return $this->render('bird/home.html.twig');
     }
 }
