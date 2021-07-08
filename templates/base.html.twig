@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
+    {# On laisse le title vide pour que chaque page définisse son propre titre #}
+    <title>{% block title %}{% endblock %} - Angry Birds fansite</title>
     <!-- Voir https://bootswatch.com/lumen/ -->
     <!-- https://www.jsdelivr.com/package/npm/bootswatch dossier dist/lumen -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.0/dist/lumen/bootstrap.min.css">
@@ -28,7 +29,7 @@
                     <a class="nav-link" href="{{ path('home') }}">The Birds</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Fan API</a>
+                    <a class="nav-link" href="{{ path('api_birds_get') }}">Fan API</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
