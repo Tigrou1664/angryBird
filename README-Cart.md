@@ -16,6 +16,9 @@
 On aura besoin d'utiliser la session, voir https://symfony.com/doc/current/controller.html#managing-the-session
 
 ### Page panier
+
+:hand: Ici on peut se contenter de n'afficher que les infos des oiseaux en session, on peut mettre de côté la fonctiionnalité "Panier" et parler de "Wishlist".
+
 ![](README/c-cart.png)
 
 ### Contrôleurs
@@ -37,6 +40,7 @@ On aura besoin d'utiliser la session, voir https://symfony.com/doc/current/contr
 &lt;Bonus&gt; 
 
 - Afficher l'image, le nom et le prix de chaque oiseau dans le panier.
+    - :hand: Ici on peut se contenter de n'afficher que les infos des oiseaux en session, on peut mettre de côté la fonctiionnalité "Panier" et parler de "Wishlist".
     - Trouver un moyen à l'ajout au panier d'éviter les doublons (chaque oiseau ne doit être référencé qu'une seule fois).
 
 - **Ajouter des _[Flash Messages](https://symfony.com/doc/current/controller.html#flash-messages)_** dans les contrôleurs sur les actions de mise en panier ou modification du panier.
