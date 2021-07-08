@@ -58,10 +58,18 @@ class BirdModel
      * 
      * @param int $id Bird id
      * 
-     * @return array Bird data
+     * @return array|null Bird data
      */
-    public function getBirdById(int $id): array
+    public function getBirdById(int $id): ?array
     {
+        // /!\ C'est bien le rôle du Model de dire si la donnée existe ou non
+        // L'oiseau demandé existe-t-il dans le tableau ?
+        if ( !isset($this->birds[$id]) ) {
+            // Retourne null
+            return null;
+        }
+
+        // On retourne les infos de l'oiseau
         return $this->birds[$id];
     }
 

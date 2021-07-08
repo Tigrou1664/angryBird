@@ -37,7 +37,7 @@ class BirdController extends AbstractController
     /**
      * Page d'un oiseau
      * 
-     * @Route("/bird/{id}", name="bird_show")
+     * @Route("/bird/{id}", name="bird_show", requirements={"id"="\d+"})
      */
     public function show($id)
     {
@@ -45,7 +45,11 @@ class BirdController extends AbstractController
         $birdModel = new BirdModel();
         $bird = $birdModel->getBirdById($id);
 
-        dump($bird);
+        // /!\ C'est bien le rôle du contrôleur de gérer la 404
+        // Oiseau non trouvé ?
+        if ($bird === null) {
+            throw $this->createNotFoundException('Bird not found.');
+        }
         
         return $this->render('bird/show.html.twig', [
             'bird' => $bird,
