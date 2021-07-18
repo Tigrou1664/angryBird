@@ -122,3 +122,4 @@ Cela n'est pas précisé dans les captures mais vous pourriez proposer un accès
 - Parcourir [les conventions de codage et de nommage de Symfony](https://symfony.com/doc/current/contributing/code/standards.html).  
 Elles vous permettront d'avoir **une base pour l'écriture de votre code**.
 - [Les fondamentaux HTTP, vus par Symfony](https://symfony.com/doc/current/introduction/http_fundamentals.html).
+# angryBird
