@@ -2,6 +2,9 @@
 
 {% block title %}A Field Guide to Angry Birds{% endblock %}
 
+{# Ce block va "activer" le menu "The Birds" #}
+{% block menu_home %}active{% endblock %}
+
 {% block body %}
 
     <!-- Header -->
@@ -16,11 +19,11 @@
         <div class="row">
     
             {# @link https://twig.symfony.com/doc/3.x/tags/for.html#iterating-over-keys-and-values #}
-            {% for index, bird in birds %}
+            {% for bird in birds %}
             <!-- Bird Card -->
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
                 <div class="card mb-3 bird-card">
-                    <a href="{{ path('bird_show', {id: index}) }}">
+                    <a href="{{ path('bird_show', {id: bird.id}) }}">
                         <h3 class="card-header bird-card__title">{{ bird.name }}</h3>
                         <img class="bird-card__image" src="{{ asset( 'images/' ~ bird.image ) }}" width="100%">
                     </a>

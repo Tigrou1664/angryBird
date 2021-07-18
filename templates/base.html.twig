@@ -31,8 +31,18 @@
 
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                {#
+                    On crée des blocks Twig pour conditionner, via le template enfant,
+                    la classe "active" sur les li
+                #}
+                <li class="nav-item {% block menu_home %}{% endblock %}">
                     <a class="nav-link" href="{{ path('home') }}">The Birds</a>
+                </li>
+                <li class="nav-item {% block menu_wishlist %}{% endblock %}">
+                    <a class="nav-link" href="{{ path('wishlist') }}">Wishlist</a>
+                </li>
+                <li class="nav-item {% block menu_cart %}{% endblock %}">
+                    <a class="nav-link" href="{{ path('cart_show') }}">Cart</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('api_birds_get') }}">Fan API</a>

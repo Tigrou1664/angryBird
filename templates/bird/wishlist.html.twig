@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Wishlist{% endblock %}
+
+{% block menu_wishlist %}active{% endblock %}
+
+{% block body %}
+
+    <!-- Header -->
+    <main class="container main-content">
+        <div class="jumbotron mt-3 wishlist-header">
+            <h1 class="display-4">My Angry Birds Wishlist</h1>
+            <hr class="my-4">
+            <div class="row">
+        
+                {# @link https://twig.symfony.com/doc/3.x/tags/for.html#iterating-over-keys-and-values #}
+                {% if wishlist is empty %}
+                    <div class="alert alert-danger" role="alert">
+                        There is no item in your whislist!
+                    </div>
+                {% else %}
+
+                    {% for bird in wishlist %}
+                    <!-- Wishlist -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card mb-3 bird-card">
+                            <a href="{{ path('bird_show', { id: bird.id }) }}">
+                                <h3 class="card-header bird-card__title">{{ bird.name }}</h3>
+                                <img class="bird-card__image" src="{{ asset( 'images/' ~ bird.image ) }}" width="100%">
+                            </a>
+                            <a href="{{ path('wishlist_delete', {id: bird.id}) }}">Remove</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                {% endif %}
+
+            </div>
+        </div>
+    
+    </main>
+
+{% endblock %}

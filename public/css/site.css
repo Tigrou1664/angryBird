@@ -32,7 +32,7 @@ body {
     height: 50px;
 }
 
-.home-header, .bird-detail {
+.home-header, .bird-detail, .wishlist-header {
     background-color: rgb(250 250 250 / 0.5);
     padding: 2rem 2rem;
 }
@@ -49,4 +49,12 @@ body {
 .bird-detail .bird-card__image {
     border: 1px solid gray;
     width: 100%;
+}
+
+.alert {
+    width: 100%;
+}
+
+.cart-list-item__image {
+    width: 150px;
 }

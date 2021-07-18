@@ -2,6 +2,8 @@
 
 {% block title %}{{ bird.name }}{% endblock %}
 
+{% block menu_home %}active{% endblock %}
+
 {% block body %}
 
     <main class="container main-content">
@@ -15,13 +17,36 @@
                 </div>
                 <div class="col-9">
                     <p class="lead">{{ bird.description }}</p>
+                    <hr>
+                    {# Action = destination du form #}
+                    <form action="{{ path('cart_add') }}" method="post">
+                        {# champ "hidden" = invisible à l'écran #}
+                        <input type="hidden" name="id" value="{{ id }}">
+                        {# variante : <input type="hidden" name="id" value="{{ app.request.get('id') }}"> #}
+                        <button class="btn btn-primary btn-lg" type="submit">Add to cart</button>
+                    </form>
                 </div>
             </div>
 
             <hr class="my-4">
             <p class="lead">
+                <form action="{{ path('wishlist_add', {id: bird.id} )}}" method="post">
                 <a class="btn btn-primary btn-lg" href="{{ path('home') }}" role="button">Back to list</a>
+                    <input type="hidden" name="id" value="{{ id }}">
+                    <button class="btn btn-secondary btn-lg" type="submit">Add to Wishlist</button>
+                </form>
+                {# <a class="btn btn-secondary btn-lg" href="{{ path('wishlist_add', {id: app.request.get('id')}) }}" role="button">Add to Wishlist</a> #}
             </p>
+
+            <!-- Affichage des message flash -->
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ label }}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
         </div>
     
     </main>
